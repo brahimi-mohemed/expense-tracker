@@ -1,0 +1,401 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+:root{
+    --BG-color: #0B1220;
+    --Card-color: #111827;
+    --Primary-color: #10B981;
+    --Main-Txt: #F3F4F6;
+    --Muted-Txt: #9CA3AF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    text-align: center;
+    font-family: verdana, sans-serif;
+    background-color: var(--BG-color);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(15px, 1vw, 30px);
+}
+
+header h1 {
+    color: var(--Main-Txt);
+    font-size: clamp(18px, 3.8vw, 32px);
+}
+
+.add-exp-btn{
+    border: none;
+    color: var(--Main-Txt);
+    background-color: var(--Primary-color);
+    font-weight: bold;
+    font-size: clamp(10px, 2.5vw, 16px);
+    padding: 15px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-exp-btn:hover{
+    transform: scale(105%);
+    opacity: 0.8;
+    box-shadow: 0 0 7px 2px hsla(0, 0%, 100%, 0.1);
+}
+
+.add-exp-btn:active{
+    transform: scale(97%) translateY(-2px) !important;
+    opacity: 0.9 !important;
+}
+
+#dashboard{
+    border: solid hsla(0, 0%, 60%, 0.4);
+    border-width: 2px 0;
+    padding: 60px 30px;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px 30px;
+}
+
+.dash-card{
+    border: var(--Primary-color) 2px solid;
+    background-color: var(--Card-color);
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 5/4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 10px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px 5px hsla(0, 0%, 0%, 0.2);
+}
+
+.card-title{
+    color: var(--Main-Txt);
+    margin-bottom: 30px;
+    font-size: clamp(10px, 1.7vw, 22px);
+}
+
+.card-count{
+    color: var(--Muted-Txt);
+    margin-bottom: 10px;
+    font-size: clamp(12px, 1.4vw, 18px);
+}
+
+#controls{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    border-bottom: 2px solid hsla(0, 0%, 60%, 0.4);
+    padding: 15px 50px;
+    gap: 4%
+}
+    
+#sort-select,
+#filter-select{
+    background-color: var(--Primary-color);
+    text-align: center;
+    border: none;
+    padding: 0 5px;
+    width: 12em;
+    max-width: 150px;
+    color: var(--Main-Txt);
+    font-weight: bold;
+    font-size: clamp(6px, 2vw, 16px);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#sort-select:hover,
+#filter-select:hover{
+    opacity: 0.8;
+}
+
+#controls input {
+    font-size: clamp(6px, 2vw, 16px);
+    max-width: 350px;
+    width: 40%;
+    align-items: center;
+    background-color: hsl(0, 0%, 90%);
+    letter-spacing: 5%;
+    padding: 10px 15px;
+    outline:var(--Primary-color) solid 3px;
+    border-radius: 15px;
+    box-shadow: 0 0 8px 3px hsla(0, 0%, 100%, 0.1);
+    border: none;
+}
+
+#list{
+    width: 100%;
+}
+
+#list h2 {
+    text-align: start;
+    border-bottom: 2px solid hsla(0, 0%, 60%, 0.4);
+    color: var(--Main-Txt);
+    padding: 20px 30px;
+    font-size: clamp(16px, 3.5vw, 28px);
+
+}
+
+#list #msg-txt {
+    color: var(--Main-Txt);
+    display: none;
+    padding: 30px;
+    font-weight: bold;
+    font-size: clamp(16px, 2.4vw, 28px);
+}
+
+ul{
+    width: 100%;
+}
+
+li {
+    display: flex;
+    border-bottom: 1px solid hsla(0, 0%, 60%, 0.4);
+    align-items: center;
+    text-align: start;
+    width: 100%;
+    font-size: clamp(8px, 1.5vw, 18px);
+    padding: 15px;
+}
+
+.item-name{
+    color: var(--Main-Txt);
+    width: 25%;
+
+}
+
+.item-category{
+    color: var(--Main-Txt);
+    width: 15%;
+    text-align: start;
+
+}
+.item-amount{
+    color: var(--Main-Txt);
+    width: 18%;
+    text-align: end;
+
+}
+
+.item-date{
+    color: var(--Muted-Txt);
+    margin-left: auto;
+    margin-right: 25px;
+    text-align: center;
+}
+
+.edit-btn,
+.del-btn{
+    background-color: var(--Primary-color);
+    font-weight: bold;
+    color: var(--Main-Txt);
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: clamp(8px, 1.5vw, 18px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.del-btn{
+    background-color: tomato;
+    margin: 0;
+}
+
+.del-btn:hover,
+.edit-btn:hover{
+    transform: scale(107%);
+    opacity: 0.7;
+}
+
+.del-btn:active,
+.edit-btn:active{
+    transform: scale(95%) !important;
+    opacity: 0.9 !important;
+}
+
+#overlay{
+    display: none;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+#overlay.active{
+    display: block;
+}
+
+#form {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 20;
+    left: 50%;
+    top: 150px;
+    transform: translateX(-50%) translateY(-200px);
+
+    width: clamp(300px, 70vw, 700px);
+    min-height: 450px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid var(--Muted-Txt);
+    background-color: var(--Primary-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    transition: all 0.25s ease-in-out;
+}
+
+#form.active{
+    opacity: 1;
+    visibility: visible;
+    pointer-events:auto;
+    transform: translateX(-50%) translateY(0);
+
+}
+
+#form h2{
+    color: var(--Main-Txt);
+    font-size: clamp(24px, 3.5vw, 32px);
+    margin: 10px 0 40px 0;
+}
+
+#close-form-btn{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: red;
+    color: var(--Main-Txt);
+    border: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#close-form-btn:hover{
+    background-color: tomato;
+    transform: scale(107%);
+}
+
+#close-form-btn:active{
+    transform: scale(97%) !important;
+}
+
+#form input,
+#form select{
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    border: none;
+    border-radius: 10px;
+    font-size: clamp(0.8em, 2vw, 1.2em);
+    font-weight: bold;
+    background-color: var(--Card-color);
+    color: var(--Main-Txt);
+    padding: 10px 15px;
+    outline: none    
+}
+
+#form input.error{
+    outline : 3px tomato solid;
+}
+
+#form input:focus,
+#form select:focus{
+    outline: var(--Main-Txt) 1px solid;
+}
+
+.error-msg {
+    margin-bottom: 15px;
+    color: red;
+    font-size: clamp(0.6em, 1.2vw, 1em);
+    min-height: 1em;
+}
+
+#submit-btn{
+    background-color: var(--Main-Txt);
+    color: var(--Card-color);
+    font-weight: bold;
+    font-size: clamp(0.7em, 1.8vw, 1em);
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+#submit-btn:hover{
+    transform: scale(107%);
+}
+
+#submit-btn:active{
+    transform: scale(97%) !important;
+}
+
+@media (max-width:900px){
+    #dashboard{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (hover: none){
+
+    .add-exp-btn:hover{
+        transform: none;
+        opacity: 1;
+        box-shadow: none;
+    }
+
+    .del-btn:hover,
+    .edit-btn:hover{
+        transform: none;
+        opacity: 1;
+    }
+
+    #close-form-btn:hover{
+        background-color: red;
+        transform: none;
+    }
+
+    #submit-btn:hover{
+        transform: none;
+    }
+}
